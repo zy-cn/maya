@@ -1,2 +1,18 @@
-# maya
-An application system functional framework, focus on business development
+# maya 
+
+让程序员从基础框架代码中解放出来，专注于业务实现。
+框架使用特定框架，例如gin、gorm，zap等等
+
+
+## 主要功能
+* 集成RBAC权限框架，资源、角色、权限、用户、部门等多条件。
+* 系统日志系统集成
+* 数据库ORM集成及快速模板（GORM）
+* 集成gin web框架
+* Email
+* 
+
+
+## 开始使用
+
+* 
