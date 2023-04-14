@@ -17,6 +17,9 @@ import (
 )
 
 func main() {
+	//全局设置时区为东8区
+	cst8zone := time.FixedZone("CST", 8*3600)
+	time.Local = cst8zone
 
 	app := fiber.New()
 	app.Static("/", "./public")
