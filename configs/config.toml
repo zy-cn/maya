@@ -1,0 +1,20 @@
+# this is ....
+[app]
+title = "my app"
+
+[server]
+runMode = "debug"
+host = "localhost"
+port = 9001
+
+[database]
+dBType= "mysql"
+userName= "root"
+password= "zhangying"
+host= "127.0.0.1:3306"
+dBName= "quick"
+tablePrefix= "zy_"
+charset= "utf8mb4"
+parseTime= true
+maxIdleConns = 10
+maxOpenConns = 30
