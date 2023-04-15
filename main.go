@@ -75,6 +75,6 @@ func init() {
 	}
 
 	//初始化logger
-	global.Logger, global.Sugar = mayaLogger.InitLogger(*_config)
+	global.Logger, global.Sugar = mayaLogger.InitLogger(_config)
 
 }

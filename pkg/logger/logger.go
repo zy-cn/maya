@@ -17,7 +17,7 @@ import (
 var logger *zap.Logger
 var sugar *zap.SugaredLogger
 
-func InitLogger(config configs.Config) (*zap.Logger, *zap.SugaredLogger) {
+func InitLogger(config *configs.Config) (*zap.Logger, *zap.SugaredLogger) {
 	writeSyncer := getLogWriter(config)
 	encoder := getEncoder()
 	core := zapcore.NewCore(encoder, writeSyncer, zapcore.DebugLevel)
@@ -33,7 +33,7 @@ func getEncoder() zapcore.Encoder {
 	encoderConfig.EncodeTime = customTimeEncoder
 	return zapcore.NewJSONEncoder(encoderConfig)
 }
-func getLogWriter(config configs.Config) zapcore.WriteSyncer {
+func getLogWriter(config *configs.Config) zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
 		Filename:   config.Log.FileName,   // 日志文件位置
 		MaxSize:    config.Log.MaxSize,    // 进行切割之前，日志文件最大值(单位：MB)，默认100MB
