@@ -16,9 +16,10 @@
 - caarlos0/env    A simple and zero-dependencies library to parse environment variables into structs.  3.4K   2023-4-13
 fiber的实例库里也用godotenv，所以本框架使用godotenv
 
-## 5. email
+## 5. email（选用jordan-wright/email）
 email是一个很重要的功能，特别是需要消息提醒，定时报告发送等都会用到，关于email的库，go并不多，其中有两个星数较多的库
 - https://github.com/jordan-wright/email   2.3K  最后更新时间2021年1月
 - https://github.com/go-gomail/gomail      3.9K  最后更新时间2016年4月
 两个库都很不错，感觉第一个使用起来更简单，也有连接池的概念，当然第二个也有类似，但从简单性来说，第一个更好
 除了官方的文档外，也可以快速阅读：https://blog.csdn.net/qq_45533884/article/details/106334063
+所以选择使用第一个库
