@@ -33,7 +33,7 @@ var (
 	isPool   bool
 )
 
-func InitEmail(config configs.Config) {
+func InitEmail(config *configs.Config) {
 	auth = smtp.PlainAuth("", config.SMTPInfo.UserName, config.SMTPInfo.Password, config.SMTPInfo.Host)
 	hostport = config.SMTPInfo.Host + ":" + strconv.Itoa(config.SMTPInfo.Port)
 	from = config.SMTPInfo.From

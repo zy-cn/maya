@@ -71,7 +71,7 @@ func init() {
 
 	//初始化email
 	if _config.SMTPInfo.Enabled {
-		mayaEmail.InitEmail(*_config)
+		mayaEmail.InitEmail(_config)
 	}
 
 	//初始化logger
