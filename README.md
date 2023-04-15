@@ -27,6 +27,7 @@ email是一个很重要的功能，特别是需要消息提醒，定时报告发
 ## 6. Log (选用zap)
 log框架第三方库非常丰富，可供选择的主要有 logrus 和 zap，考虑zap大厂出品，性能十分优异，所以选择zap，并配合gopkg.in/natefinch/lumberjack.v2，(注意不是github.com/natefinch/lumberjack)使用,安装使用：
 ```shell
+   go get -u go.uber.org/zap
    go get -u gopkg.in/natefinch/lumberjack.v2
 ```
 
