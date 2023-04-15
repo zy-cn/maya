@@ -43,6 +43,17 @@ type Config struct {
 		MaxIdleConns int    `toml:"maxIdleConns"`
 		MaxOpenConns int    `toml:"maxOpenConns"`
 	}
+
+	SMTPInfo struct {
+		Enabled  bool   `toml:"enabled"`
+		Host     string `toml:"host"`
+		Port     int    `toml:"port"`
+		IsSSL    bool   `toml:"isSSL"`
+		UserName string `toml:"userName"`
+		Password string `toml:"password"`
+		From     string `toml:"from"`
+		PoolSize int    `toml:"poolSize"`
+	}
 }
 
 func GetConfig() (*Config, error) {

@@ -8,6 +8,7 @@ import (
 	"maya/internal/dao"
 	"maya/internal/middleware"
 	"maya/internal/routers"
+	mayaEmail "maya/pkg/email"
 	"os"
 	"os/signal"
 	"syscall"
@@ -65,6 +66,11 @@ func init() {
 	if err != nil {
 		fmt.Println("get DBEngine failed:", err)
 		return
+	}
+
+	//初始化email
+	if _config.SMTPInfo.Enabled {
+		mayaEmail.InitEmail(*_config)
 	}
 
 }

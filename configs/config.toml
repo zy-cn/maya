@@ -8,13 +8,23 @@ host = "localhost"
 port = 9001
 
 [database]
-dBType= "mysql"
-userName= "root"
-password= "zhangying"
-host= "127.0.0.1:3306"
-dBName= "quick"
-tablePrefix= "zy_"
-charset= "utf8mb4"
-parseTime= true
+dBType = "mysql"
+userName = "root"
+password = "zhangying"
+host = "127.0.0.1:3306"
+dBName = "quick"
+tablePrefix = "zy_"
+charset = "utf8mb4"
+parseTime = true
 maxIdleConns = 10
 maxOpenConns = 30
+
+[Email]
+Enabled = true
+Host = "smtp.qq.com"
+Port = 465
+UserName = "my App Admin"
+Password = "1234567890"
+IsSSL = true
+From = "admin@xxxx1234yyyy.com"
+poolSize = 0
