@@ -54,6 +54,14 @@ type Config struct {
 		From     string `toml:"from"`
 		PoolSize int    `toml:"poolSize"`
 	}
+
+	Log struct {
+		FileName   string `toml:"fileName"`
+		MaxSize    int    `toml:"maxSize"`    // 进行切割之前，日志文件最大值(单位：MB)，默认100MB
+		MaxBackups int    `toml:"maxBackups"` // 保留旧文件的最大个数
+		MaxAge     int    `toml:"maxAge"`     // 保留旧文件的最大天数
+		Compress   bool   `toml:"compress"`   // 是否压缩/归档旧文件
+	}
 }
 
 func GetConfig() (*Config, error) {

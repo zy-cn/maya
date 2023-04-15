@@ -23,3 +23,12 @@ email是一个很重要的功能，特别是需要消息提醒，定时报告发
 两个库都很不错，感觉第一个使用起来更简单，也有连接池的概念，当然第二个也有类似，但从简单性来说，第一个更好
 除了官方的文档外，也可以快速阅读：https://blog.csdn.net/qq_45533884/article/details/106334063
 所以选择使用第一个库
+
+## 6. Log (选用zap)
+log框架第三方库非常丰富，可供选择的主要有 logrus 和 zap，考虑zap大厂出品，性能十分优异，所以选择zap，并配合gopkg.in/natefinch/lumberjack.v2，(注意不是github.com/natefinch/lumberjack)使用,安装使用：
+```shell
+   go get -u gopkg.in/natefinch/lumberjack.v2
+```
+
+- https://github.com/sirupsen/logrus  22.5K  功能强大，丰富
+- https://github.com/uber-go/zap      18.5K  性能十分优异，uber大厂出品

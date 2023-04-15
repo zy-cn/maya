@@ -28,3 +28,10 @@ Password = "1234567890"
 IsSSL = true
 From = "admin@xxxx1234yyyy.com"
 poolSize = 0
+
+[Log]
+filename = "./app.log"
+maxSize = 10
+mxBackups = 5
+maxAge = 1
+compress = false

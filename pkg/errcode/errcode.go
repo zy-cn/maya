@@ -27,8 +27,14 @@ var errsMap = make(map[int]string)
 func init() {
 	errsMap[Success] = "成功"
 	errsMap[Failed] = "失败"
+	errsMap[ServerError] = "服务端错误"
+	//TODO 在此添加所有的错误描述
 }
 
 func GetDesc(code int) string {
-	return errsMap[code]
+	if desc, ok := errsMap[code]; ok {
+		return desc
+	}
+
+	return ""
 }

@@ -9,6 +9,7 @@ import (
 	"maya/internal/middleware"
 	"maya/internal/routers"
 	mayaEmail "maya/pkg/email"
+	mayaLogger "maya/pkg/logger"
 	"os"
 	"os/signal"
 	"syscall"
@@ -72,5 +73,8 @@ func init() {
 	if _config.SMTPInfo.Enabled {
 		mayaEmail.InitEmail(*_config)
 	}
+
+	//初始化logger
+	global.Logger, global.Sugar = mayaLogger.InitLogger(*_config)
 
 }
