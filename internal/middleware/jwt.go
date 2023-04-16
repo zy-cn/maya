@@ -12,6 +12,7 @@ func JwtProtected(whitePaths []string) fiber.Handler {
 		SigningKey:   []byte(global.Config.Jwt.Secret),
 		ErrorHandler: jwtError,
 		Filter: func(c *fiber.Ctx) bool {
+			//TODO 这里处理白名单逻辑待写
 			return true
 		},
 	})
