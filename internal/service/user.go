@@ -42,6 +42,7 @@ func ValidUser(id string, p string) bool {
 	return true
 }
 
+// UserSrv
 type userSrv struct {
 }
 
