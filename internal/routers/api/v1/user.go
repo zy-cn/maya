@@ -55,13 +55,12 @@ func GetUser(c *fiber.Ctx) error {
 
 	idInt, err := strconv.Atoi(id)
 	if err != nil {
-		r.Code = errcode.InvalidParam
-		r.Message = errcode.GetDesc(r.Code)
+		r.SetErrorCode(errcode.InvalidParam)
 		return c.Status(500).JSON(r)
 	}
 	user, err := srv.UserSrv.GetUser(idInt)
 	if err != nil {
-		r.Code = errcode.DbNotExists
+		r.SetErrorCode(errcode.DbNotExists)
 		r.Message = errcode.GetDesc(r.Code)
 		return c.Status(500).JSON(r)
 	}
