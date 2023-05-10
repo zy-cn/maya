@@ -34,13 +34,6 @@ func main() {
 		app.Listen((":9002"))
 	}()
 
-	// defer recover()
-
-	// go func() {
-	// 	fmt.Println("panic")
-	// 	panic("lll")
-	// }()
-
 	quit := make(chan os.Signal)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
