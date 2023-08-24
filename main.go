@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"go.uber.org/zap"
 )
 
 func main() {
@@ -76,5 +77,7 @@ func init() {
 
 	//初始化logger
 	global.Logger, global.Sugar = mayaLogger.InitLogger(_config)
+
+	global.Logger.Info("系统启动成功", zap.String("name", "maya system"))
 
 }

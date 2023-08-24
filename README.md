@@ -5,6 +5,8 @@
 源码：https://github.com/gofiber/fiber
 文档：gofiber.io
 实例：https://github.com/gofiber/recipes
+
+2023-6-13 gin 69.4K   fiber 26.7K
 ## 2. 配置文件处理 go-toml/v2
 配置文件采用TOML格式处理，使用 github.com/pelletier/go-toml/v2 库，参考文章：https://www.cnblogs.com/realcp1018/p/14863128.html
 
@@ -37,3 +39,16 @@ log框架第三方库非常丰富，可供选择的主要有 logrus 和 zap，�
 
 ## 7. cmd 命令行
    https://github.com/spf13/cobra，太优秀了，支持子命令，使用也很简单，hugo等很多工具都使用该库，没必要再考虑其他了
+
+## 8. Excel读写
+中间改过好多次地址
+https://github.com/qax-os/excelize
+xuri.me/excelize
+
+## 9. Redis读写
+官方推荐的有：（截止：2023年7月30号）
+1. https://github.com/redis/go-redis   17.6K  一直在更新
+2. https://github.com/gomodule/redigo  9.6K   有更新
+3. https://github.com/mediocregopher/radix 608  几乎不再更新，不推荐
+   从功能及更新及星数看，go-redis是首选
+   文档也很丰富 https://redis.uptrace.dev/zh/guide/go-redis.html

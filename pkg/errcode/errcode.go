@@ -7,11 +7,12 @@ var (
 	NotFound        = 10002
 	RequestOverflow = 10005
 
-	Unauthorized    = 11003
-	InvalidToken    = 11004
-	InvalidPassword = 11005
-	InvalidUsername = 11006
-	HashError       = 11007
+	Unauthorized      = 11003
+	InvalidToken      = 11004
+	InvalidPassword   = 11005
+	InvalidUsername   = 11006
+	HashError         = 11007
+	GenerateTokenFail = 11008
 
 	DbQueryFailed  = 20001
 	DbExists       = 20002

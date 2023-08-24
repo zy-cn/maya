@@ -20,8 +20,9 @@ func Login(c *fiber.Ctx) error {
 	r := routers.NewResResult[any]()
 
 	if err := c.BodyParser(&loginBody); err != nil {
-		r.Code = errcode.InvalidParam
-		r.Message = errcode.GetDesc(r.Code)
+		// r.Code = errcode.InvalidParam
+		// r.Message = errcode.GetDesc(r.Code)
+		r.SetErrorCode(errcode.InvalidParam)
 		r.Data = nil
 		return c.Status(fiber.StatusBadRequest).JSON(r)
 	}
@@ -35,31 +36,35 @@ func Login(c *fiber.Ctx) error {
 	if err == nil { //如果是email,按email查询
 		user, err = srv.AuthSrv.GetUserByEmail(identity)
 		if err != nil {
-			r.Code = errcode.DbQueryFailed
-			r.Message = errcode.GetDesc(r.Code)
+			// r.Code = errcode.DbQueryFailed
+			// r.Message = errcode.GetDesc(r.Code)
+			r.SetErrorCode(errcode.DbQueryFailed)
 			r.Data = err
 			return c.Status(fiber.StatusUnauthorized).JSON(r)
 		}
 	} else {
 		user, err = srv.AuthSrv.GetUserByUsername(identity)
 		if err != nil {
-			r.Code = errcode.DbQueryFailed
-			r.Message = errcode.GetDesc(r.Code)
+			// r.Code = errcode.DbQueryFailed
+			// r.Message = errcode.GetDesc(r.Code)
+			r.SetErrorCode(errcode.DbQueryFailed)
 			r.Data = err
 			return c.Status(fiber.StatusUnauthorized).JSON(r)
 		}
 	}
 
 	if user == nil {
-		r.Code = errcode.DbNotExists
-		r.Message = errcode.GetDesc(r.Code)
+		// r.Code = errcode.DbNotExists
+		// r.Message = errcode.GetDesc(r.Code)
+		r.SetErrorCode(errcode.DbNotExists)
 		r.Data = nil
 		return c.Status(fiber.StatusUnauthorized).JSON(r)
 	}
 
 	if !srv.CheckPasswordHash(pass, user.Password) {
-		r.Code = errcode.InvalidPassword
-		r.Message = errcode.GetDesc(r.Code)
+		// r.Code = errcode.InvalidPassword
+		// r.Message = errcode.GetDesc(r.Code)
+		r.SetErrorCode(errcode.InvalidPassword)
 		r.Data = nil
 		return c.Status(fiber.StatusUnauthorized).JSON(r)
 	}
@@ -70,8 +75,9 @@ func Login(c *fiber.Ctx) error {
 
 	token, err := srv.GenerateToken(claims)
 	if err != nil {
-		r.Code = -1
-		r.Message = "生成token失败"
+		// r.Code = -1
+		// r.Message = "生成token失败"
+		r.SetErrorCode(errcode.GenerateTokenFail)
 		r.Data = nil
 		return c.Status(fiber.StatusUnauthorized).JSON(r)
 	}
